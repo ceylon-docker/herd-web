@@ -1,0 +1,9 @@
+herddb:
+    image: ceylon/ceylon-herd-dbase
+herdweb:
+    image: ceylon/ceylon-herd-web
+    ports:
+        - "9000:9000"
+    links:
+        - "herddb:postgres"
+

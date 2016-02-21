@@ -19,7 +19,7 @@ NB: The Herd web server image expects the database server to have the host name 
 NB2: The `-p 9000:9000` option exposes the web server's default port locally on 9000 as well. This is not required but will make testing and following documentation easier because they expect the server to run locally.
 NB3: In this example we're pulling and running the image that is tagged `:latest`. You can replace it with any other tag or you can leave it out if you want (it will default to `:latest` automatically).
 
-## Creating an admin user
+### Creating an admin user
 
 **Important**: if you are starting with a fresh (empty) database the Herd web server will create the database when a user accesses the site for the first time. But no admin user will be available to do any maintenance. So before you can do anything you must create an administrator account. The process [is explained here](https://github.com/ceylon/ceylon-herd).
 
@@ -37,4 +37,14 @@ If you a running a non-public test server there's an even quicker way:
  - `docker exec -t herddb ./add-herd-admin.sh`
 
 Will create a user named `admin` and password `admin`.
+
+### Quick setup web + dbase
+
+For super quick setup install [docker-compose](https://docs.docker.com/compose/install/), get the [docker-compose.yml](https://raw.githubusercontent.com/ceylon-docker/herd-web/master/docker-compose.yml) from this repository and in the same directory run:
+
+ - `docker-compose up -d`
+
+The web server will be accessible at [http://localhost:9000](http://localhost:9000)
+
+(Unfortunately you'll still need to manually create an admin user for now, see the section "Creating an admin user" here [ceylon-herd-web Dockerfile]( https://hub.docker.com/r/ceylon/ceylon-herd-web/))
 
